@@ -25,7 +25,20 @@ function handleDragOver(e) {
 function handleDrop(e) { 
 	e.preventDefault();
 
-	this.appendChild(draggedPiece);
+    /* My code should check if there is any element inside the zone the user is
+    trying the drop the piece.
+    If there is an element, the action of dropping should be stopped;
+    If there is no element, the drop should be completed succesfully.*/
+
+    if (this.childElementCount !== 0) {
+		console.log('cannot drop this piece');
+		return;
+	}
+
+	else {
+		console.log('dropped something on me');
+		this.appendChild(draggedPiece);
+	}
 }
 
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
